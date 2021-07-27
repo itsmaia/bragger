@@ -1,0 +1,70 @@
+!!!
+%html
+  %head
+    %title Bragger
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+  %body
+    %nav.purple.lighten-1
+      .container
+        .nav-wrapper
+          - if user_signed_in?
+            %a.sidenav-trigger.show-on-large{"data-target" => "slide-out"}
+              %i.material-icons menu
+          .brand-logo
+            = link_to '/Bragger', root_path
+          %ul#nav-mobile.right.hide-on-med-and-down
+            - if user_signed_in?
+              = link_to users_sign_out_path, method: :delete do
+                %i.material-icons exit_to_app
+            - else
+              %li
+                = link_to 'Login', new_user_session_path
+              %li
+                = link_to 'Register',  new_user_registration_path
+    .container
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+      = yield
+- if user_signed_in?
+  %ul#slide-out.sidenav
+    %li
+      .user-view
+        .background
+          %img{:src => "https://maisonave.com.br/wp-content/uploads/2019/04/Jurere-Internacional.jpg"}/
+        = link_to edit_user_path(current_user) do
+          = image_tag user_avatar(current_user), class: "circle responsive-img"
+          %span.white-text.name
+            "Username"
+          %span.white-text.email
+            "Email"
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons show_chart
+        Immersion Time
+        %span.new.badge 4
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons show_chart
+        Added Sentences
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons show_chart
+        Reading Volume
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons show_chart
+        Unknown Words
+    .divider
+    %li
+      %a.subheader Free Account
+    %li
+      %a{:href => "#!"}
+        %i.tiny.material-icons today
+        Manage Subscription
