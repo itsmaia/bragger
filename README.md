@@ -1,24 +1,14 @@
-# README
+# About
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The goal here is to create a language learning tool to track your journey and help keep you in track.
 
-Things you may want to cover:
+The project is inspired by the spreadsheet created by [Stevijs](https://www.youtube.com/watch?v=2gIu00WcbTI) and since i'm using it for free and it's helping me a lot, the software will be free to use and open source as well.
 
-* Ruby version
+Feel free to open issues and PR for bugs/features.
 
-* System dependencies
+# Features
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Sick looking charts
+* Optional duolingo style terrorism
+* Future projections based on your current progress rate
+* That's all, i want a simple software.
