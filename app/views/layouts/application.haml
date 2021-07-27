@@ -8,30 +8,33 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
-  %body
-    %nav.purple.lighten-1
+  %body.white
+    %nav.white
       .container
         .nav-wrapper
           - if user_signed_in?
             %a.sidenav-trigger.show-on-large{"data-target" => "slide-out"}
               %i.material-icons menu
           .brand-logo
-            = link_to '/Bragger', root_path
+            = link_to root_path do
+              .black-text
+                \/Bragger
+          %ul#nav-mobile.right.hide-on-med-and-down
+            %a.waves-effect.waves-light.btn-small.pink.lighten-2 Support us
           %ul#nav-mobile.right.hide-on-med-and-down
             - if user_signed_in?
               = link_to users_sign_out_path, method: :delete do
                 %i.material-icons exit_to_app
             - else
               %li
-                = link_to 'Login', new_user_session_path
-              %li
-                = link_to 'Register',  new_user_registration_path
-    .container
-      - if notice
-        %p.alert.alert-success= notice
-      - if alert
-        %p.alert.alert-danger= alert
-      = yield
+                = link_to new_user_session_path do
+                  .black-text
+                    Login
+    - if notice
+      %p.alert.alert-success= notice
+    - if alert
+      %p.alert.alert-danger= alert
+    = yield
 - if user_signed_in?
   %ul#slide-out.sidenav
     %li
