@@ -1,14 +1,13 @@
 class Entry < ApplicationRecord
   require "chronic_duration"
 
-  attribute :anki, :interval
-  attribute :reading, :interval
-  attribute :listening, :interval
-  attribute :passive_listening, :interval
-
   validates :entry_date,
             :anki,
             presence: true
 
+  has_many :anki_subentries
+  has_many :reading_subentries
+  has_many :immersion_subentries
   belongs_to :user
+  belongs_to :language_project
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_27_212707) do
+ActiveRecord::Schema.define(version: 2021_07_28_162041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 2021_07_27_212707) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "anki_subentries", force: :cascade do |t|
+    t.string "description"
+    t.datetime "start_time"
+    t.datetime "stop_time"
+    t.integer "duration"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "entry_id"
+    t.index ["entry_id"], name: "index_anki_subentries_on_entry_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -51,16 +62,46 @@ ActiveRecord::Schema.define(version: 2021_07_27_212707) do
   create_table "entries", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.interval "anki"
-    t.interval "reading"
-    t.interval "listening"
-    t.interval "passive_listening"
     t.integer "sentences_added"
     t.integer "words_added"
     t.text "commentary"
     t.datetime "entry_date"
     t.bigint "user_id"
+    t.bigint "language_project_id"
+    t.index ["language_project_id"], name: "index_entries_on_language_project_id"
     t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
+  create_table "immersion_subentries", force: :cascade do |t|
+    t.string "description"
+    t.integer "type"
+    t.datetime "start_time"
+    t.datetime "stop_time"
+    t.integer "duration"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "entry_id"
+    t.index ["entry_id"], name: "index_immersion_subentries_on_entry_id"
+  end
+
+  create_table "language_projects", force: :cascade do |t|
+    t.string "name"
+    t.boolean "active"
+    t.bigint "user_id_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id_id"], name: "index_language_projects_on_user_id_id"
+  end
+
+  create_table "reading_subentries", force: :cascade do |t|
+    t.string "description"
+    t.datetime "start_time"
+    t.datetime "stop_time"
+    t.integer "duration"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "entry_id"
+    t.index ["entry_id"], name: "index_reading_subentries_on_entry_id"
   end
 
   create_table "tags", force: :cascade do |t|

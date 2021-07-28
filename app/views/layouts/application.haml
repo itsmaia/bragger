@@ -14,7 +14,8 @@
         .nav-wrapper
           - if user_signed_in?
             %a.sidenav-trigger.show-on-large{"data-target" => "slide-out"}
-              %i.material-icons menu
+              %i.material-icons.black-text
+                menu
           .brand-logo
             = link_to root_path do
               .black-text
@@ -49,6 +50,10 @@
             "Username"
           %span.white-text.email
             "Email"
+    %li
+      = link_to entries_path do
+        %i.tiny.material-icons add
+        Entries
     %li
       %a{:href => "#!"}
         %i.tiny.material-icons show_chart
