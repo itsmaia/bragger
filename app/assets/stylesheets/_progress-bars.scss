@@ -51,3 +51,33 @@
   border-bottom-right-radius: 3px;
   overflow: hidden;
 }
+
+.activities-overview {
+  .spent {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 0;
+    font-size: 1em;
+    font-weight: 100;
+    color: #999;
+    text-align: center;
+
+    .spent-info {
+      position: relative;
+      top: 24px;
+
+      .hours {
+        display: block;
+        font-size: 2em;
+        color: #333 !important;
+        letter-spacing: -2px;
+      }
+      .percent {
+        display: block;
+        margin-top: 2px;
+        color: #999;
+      }
+    }
+  }
+}
