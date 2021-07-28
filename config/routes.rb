@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   authenticated :user do
-    root :to => "dashboard#index", as: :authenticated_root
+    root to: "dashboard#index", as: :authenticated_root
   end
   devise_for :users
   devise_scope :user do

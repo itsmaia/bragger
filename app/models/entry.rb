@@ -1,5 +1,5 @@
 class Entry < ApplicationRecord
-  require 'chronic_duration'
+  require "chronic_duration"
 
   attribute :anki, :interval
   attribute :reading, :interval
@@ -10,4 +10,5 @@ class Entry < ApplicationRecord
             :anki,
             presence: true
 
+  belongs_to :user
 end
