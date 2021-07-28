@@ -9,7 +9,7 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
   %body.white
-    %nav.white
+    %nav.white.z-depth-0
       .container
         .nav-wrapper
           - if user_signed_in?
@@ -24,17 +24,19 @@
           %ul#nav-mobile.right.hide-on-med-and-down
             - if user_signed_in?
               = link_to users_sign_out_path, method: :delete do
-                %i.material-icons exit_to_app
+                %i.material-icons.black-text
+                  exit_to_app
             - else
               %li
                 = link_to new_user_session_path do
                   .black-text
                     Login
-    - if notice
-      %p.alert.alert-success= notice
-    - if alert
-      %p.alert.alert-danger= alert
-    = yield
+    .container
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+      = yield
 - if user_signed_in?
   %ul#slide-out.sidenav
     %li

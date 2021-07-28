@@ -79,6 +79,9 @@ GEM
       xpath (~> 3.2)
     chartkick (4.0.5)
     childprocess (3.0.0)
+    chronic (0.10.2)
+    chronic_duration (0.10.6)
+      numerizer (~> 0.1.1)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     decent_exposure (3.0.4)
@@ -125,6 +128,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.11.7-x86_64-linux)
       racc (~> 1.4)
+    numerizer (0.1.1)
     orm_adapter (0.5.0)
     pg (1.2.3)
     public_suffix (4.0.6)
@@ -189,6 +193,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -239,6 +246,8 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   chartkick
+  chronic
+  chronic_duration
   decent_exposure (~> 3.0)
   devise
   gravatar_image_tag
@@ -252,6 +261,7 @@ DEPENDENCIES
   rails (~> 6.1.4)
   sass-rails (>= 6)
   selenium-webdriver
+  simple_form
   spring
   turbolinks (~> 5)
   tzinfo-data

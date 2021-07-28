@@ -28,6 +28,9 @@ gem "awesome_print", require: "ap"
 gem "decent_exposure", "~> 3.0"
 gem 'gravatar_image_tag'
 gem 'image_processing', '~> 1.2'
+gem "chronic_duration"
+gem "chronic"
+gem "simple_form"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

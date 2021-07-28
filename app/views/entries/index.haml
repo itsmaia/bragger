@@ -1,0 +1,36 @@
+%table.highlight
+  %thead
+    %tr
+      %th
+        = Entry.human_attribute_name(:entry_date)
+      %th
+        = Entry.human_attribute_name(:anki)
+      %th
+        = Entry.human_attribute_name(:reading)
+      %th
+        = Entry.human_attribute_name(:listening)
+      %th
+        = Entry.human_attribute_name(:passive_listening)
+      %th
+        = Entry.human_attribute_name(:commentary)
+      %th
+        = link_to new_entry_path do
+          %i.material-icons add
+  %tbody
+    - @entries.each do |entry|
+      %tr
+        %td
+          =  humanized_date(entry.entry_date)
+        %td
+          = ChronicDuration.output(entry.anki.to_i, :format => :short)
+        %td
+          = ChronicDuration.output(entry.reading.to_i, :format => :short)
+        %td
+          = ChronicDuration.output(entry.listening.to_i, :format => :short)
+        %td
+          = ChronicDuration.output(entry.passive_listening.to_i, :format => :short)
+        %td
+          = entry.commentary
+        %td
+          = link_to edit_entry_path(entry) do
+            %i.material-icons.tiny.pink-text mode_edit

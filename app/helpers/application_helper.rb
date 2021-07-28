@@ -6,4 +6,8 @@ module ApplicationHelper
         gravatar_image_url(user.email, size: size)
       end
   end
+
+  def humanized_date(date)
+    date.strftime("%B %d, %Y")
+  end
 end

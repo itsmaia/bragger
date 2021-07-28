@@ -6,17 +6,14 @@ function initializeMaterialize(){
   $(document).ready(function(){
     $('select').formSelect();
   });
+
+  $('.datepicker').datepicker({
+    autoClose: true
+  });
   
   M.updateTextFields();
 }
 
-$(document).on('turbolinks:load', function() {
-  initializeMaterialize();
-})
-
-$(document).ready(function(){
-  $('select').formSelect();
-});
-$(document).ready(function(){
-  $('.sidenav').sidenav();
+$(function(){
+  initializeMaterialize()
 });
