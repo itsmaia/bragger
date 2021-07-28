@@ -1,0 +1,23 @@
+.activities-overview
+  %ol.activities
+    %li
+      %span.color{:style => "background-color:red;"}
+      %span.activity= "Active Immersion"
+    %li
+      %span.color{:style => "background-color:green;"}
+      %span.activity= "Passive Immersion"
+    %li
+      %span.color{:style => "background-color:purple;"}
+      %span.activity= "Reading"
+    %li
+      %span.color{:style => "background-color:yellow;"}
+      %span.activity= "Anki"
+
+    
+%br/
+.bar
+  .graph
+    %span.activity-color{:itemprop => "keywords", :style => "width:#{25}%; background-color:red;"}
+    %span.activity-color{:itemprop => "keywords", :style => "width:#{15}%; background-color:green;"}
+    %span.activity-color{:itemprop => "keywords", :style => "width:#{30}%; background-color:purple;"}
+    %span.activity-color{:itemprop => "keywords", :style => "width:#{30}%; background-color:yellow;"}
