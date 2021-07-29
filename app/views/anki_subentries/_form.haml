@@ -1,0 +1,31 @@
+.section
+  = form_with model: @anki_subentries do |f|
+  
+    .row
+      .col.s4
+        = f.label :entry_date
+        = f.text_field :entry_date, as: :string, class: "datepicker"
+      .col.s2
+        = f.label :anki
+        = f.text_field :anki, class: 'time'
+      .col.s2
+        = f.label :reading
+        = f.text_field :reading
+      .col.s2
+        = f.label :listening
+        = f.text_field :listening
+      .col.s2
+        = f.label :passive_listening
+        = f.text_field :passive_listening
+    .row
+      .col.s3
+        = f.label :sentences_added
+        = f.text_field :sentences_added
+      .col.s3
+        = f.label :words_added
+        = f.text_field :words_added
+      .col.s6
+        = f.label :commentary
+        = f.text_field :commentary
+  
+    = f.button :submit

@@ -1,0 +1,2 @@
+class AnkiSubentriesController < ApplicationController
+end

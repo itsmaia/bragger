@@ -9,19 +9,11 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
   %body.white
-    %nav.white.z-depth-0
-      .container
+    .header
+      %nav.white.z-depth-0
         .nav-wrapper
-          - if user_signed_in?
-            %a.sidenav-trigger.show-on-large{"data-target" => "slide-out"}
-              %i.material-icons.black-text
-                menu
-          .brand-logo
-            = link_to root_path do
-              .black-text
-                \/Bragger
           %ul#nav-mobile.right.hide-on-med-and-down
-            %a.waves-effect.waves-light.btn-small.pink.lighten-2 Support us
+            %a.waves-effect.waves-light.btn-small.pink.lighten-3 Support us
           %ul#nav-mobile.right.hide-on-med-and-down
             - if user_signed_in?
               = link_to users_sign_out_path, method: :delete do
@@ -32,49 +24,51 @@
                 = link_to new_user_session_path do
                   .black-text
                     Login
-    .container
-      - if notice
-        %p.alert.alert-success= notice
-      - if alert
-        %p.alert.alert-danger= alert
-      = yield
+    %main
+      .mainContainer
+        - if notice
+          %p.alert.alert-success= notice
+        - if alert
+          %p.alert.alert-danger= alert
+        = yield
 - if user_signed_in?
-  %ul#slide-out.sidenav
+  %ul#slide-out.sidenav.sidenav-fixed
     %li
       .user-view
-        .background
-          %img{:src => "https://maisonave.com.br/wp-content/uploads/2019/04/Jurere-Internacional.jpg"}/
         = link_to edit_user_path(current_user) do
           = image_tag user_avatar(current_user), class: "circle responsive-img"
-          %span.white-text.name
-            "Username"
-          %span.white-text.email
-            "Email"
+          %span.black-text.name
+            Gustavo Maia
+          %span.black-text.email
+            gustavomeneses@protonmail.com
     %li
       = link_to entries_path do
         %i.tiny.material-icons add
         Entries
     %li
-      %a{:href => "#!"}
-        %i.tiny.material-icons show_chart
-        Immersion Time
-        %span.new.badge 4
+      = link_to immersion_subentries_path do
+        %i.tiny.material-icons layers
+        Immersion
     %li
-      %a{:href => "#!"}
-        %i.tiny.material-icons show_chart
+      = link_to entries_path do
+        %i.tiny.material-icons short_text
         Added Sentences
     %li
-      %a{:href => "#!"}
-        %i.tiny.material-icons show_chart
+      = link_to reading_subentries_path do
+        %i.tiny.material-icons bookmark_border
         Reading Volume
     %li
-      %a{:href => "#!"}
-        %i.tiny.material-icons show_chart
+      = link_to anki_subentries_path do
+        %i.tiny.material-icons star_border
+        Anki
+    %li
+      = link_to entries_path do
+        %i.tiny.material-icons help_outline
         Unknown Words
     .divider
     %li
       %a.subheader Free Account
     %li
-      %a{:href => "#!"}
+      = link_to entries_path do
         %i.tiny.material-icons today
         Manage Subscription
