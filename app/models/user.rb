@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  has_many :entries
-  has_many :language_projects
+  has_many :entries, dependent: :destroy
+  has_many :language_projects, dependent: :destroy
 end

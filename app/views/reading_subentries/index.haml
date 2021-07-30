@@ -2,35 +2,23 @@
   %thead
     %tr
       %th
-        = Entry.human_attribute_name(:entry_date)
+        = ReadingSubentry.human_attribute_name(:reading_subentry)
       %th
-        = Entry.human_attribute_name(:anki)
+        = ReadingSubentry.human_attribute_name(:duration)
       %th
-        = Entry.human_attribute_name(:reading)
+        = ReadingSubentry.human_attribute_name(:description)
       %th
-        = Entry.human_attribute_name(:listening)
-      %th
-        = Entry.human_attribute_name(:passive_listening)
-      %th
-        = Entry.human_attribute_name(:commentary)
-      %th
-        = link_to new_entry_path do
+        = link_to new_reading_subentry_path do
           %i.material-icons add
   %tbody
-    - @entries.each do |entry|
+    - @reading_subentries&.each do |reading_subentry|
       %tr
         %td
-          =  humanized_date(entry.entry_date)
+          =  humanized_date(reading_subentry.entry.entry_date)
         %td
-          = ChronicDuration.output(entry.anki.to_i, :format => :short)
+          = chronify_output(reading_subentry&.duration)
         %td
-          = ChronicDuration.output(entry.reading.to_i, :format => :short)
+          = reading_subentry.description
         %td
-          = ChronicDuration.output(entry.listening.to_i, :format => :short)
-        %td
-          = ChronicDuration.output(entry.passive_listening.to_i, :format => :short)
-        %td
-          = entry.commentary
-        %td
-          = link_to edit_entry_path(entry) do
+          = link_to edit_reading_subentry_path(reading_subentry) do
             %i.material-icons.tiny.pink-text mode_edit

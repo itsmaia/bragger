@@ -20,7 +20,7 @@
         %td
           = immersion_subentry.immersion_type.upcase_first
         %td
-          = ChronicDuration.output(immersion_subentry&.duration || 0, :format => :short)
+          = chronify_output(immersion_subentry&.duration)
         %td
           = immersion_subentry.description
         %td
