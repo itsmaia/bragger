@@ -1,5 +1,5 @@
 class ImmersionSubentriesController < ApplicationController
-  before_action :chronify, only: [:update, :create]
+  before_action :chronify, only: %i[update create]
 
   def new
     @immersion_subentry = ImmersionSubentry.new
