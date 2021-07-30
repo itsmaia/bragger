@@ -5,7 +5,6 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_params)
-    chronify(@entry)
     @entry&.user_id = current_user.id
     if @entry.save
       flash[:success] = "entry created!"
@@ -13,6 +12,12 @@ class EntriesController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def update
+    @entry = Entry.find(params[:id])
+    @entry.update!(entry_params)
+    render action: "index"
   end
 
   def index
@@ -26,14 +31,6 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:entry_date, :anki, :reading, :listening, :passive_listening, :sentences_added, :words_added, :commentary)
-  end
-
-  def chronify(entry)
-    entry.anki = ChronicDuration.parse(entry_params[:anki])
-    entry.reading = ChronicDuration.parse(entry_params[:reading])
-    entry.listening = ChronicDuration.parse(entry_params[:listening])
-    entry.passive_listening = ChronicDuration.parse(entry_params[:passive_listening])
-    entry
+    params.require(:entry).permit(:entry_date, :sentences_added, :words_added, :commentary, :language_project_id)
   end
 end

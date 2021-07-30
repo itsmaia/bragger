@@ -2,7 +2,6 @@ class Entry < ApplicationRecord
   require "chronic_duration"
 
   validates :entry_date,
-            :anki,
             presence: true
 
   has_many :anki_subentries

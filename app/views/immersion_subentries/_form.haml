@@ -1,31 +1,14 @@
 .section
-  = form_with model: @immersion_subentries do |f|
+  = simple_form_for @immersion_subentry do |f|
   
     .row
       .col.s4
-        = f.label :entry_date
-        = f.text_field :entry_date, as: :string, class: "datepicker"
+        = f.input :entry_id, collection: current_user.entries, label_method: lambda { |entry| humanized_date(entry.entry_date) }, prompt: "When?"
       .col.s2
-        = f.label :anki
-        = f.text_field :anki, class: 'time'
+        = f.input :immersion_type, collection: ImmersionSubentry.immersion_types.keys, prompt: "Immersion Type"
       .col.s2
-        = f.label :reading
-        = f.text_field :reading
+        = f.input :duration, as: :string, placeholder: "00:00:00", input_html: { value: chronify_output(f.object.duration) }
       .col.s2
-        = f.label :listening
-        = f.text_field :listening
-      .col.s2
-        = f.label :passive_listening
-        = f.text_field :passive_listening
-    .row
-      .col.s3
-        = f.label :sentences_added
-        = f.text_field :sentences_added
-      .col.s3
-        = f.label :words_added
-        = f.text_field :words_added
-      .col.s6
-        = f.label :commentary
-        = f.text_field :commentary
+        = f.input :description
   
     = f.button :submit

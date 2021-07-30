@@ -4,7 +4,7 @@ class CreateLanguageProjects < ActiveRecord::Migration[6.1]
       t.string :name
       t.boolean :active
 
-      t.references :user_id, index: true
+      t.references :user, index: true
       t.timestamps
     end
   end

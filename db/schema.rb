@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_07_28_162041) do
 
   create_table "immersion_subentries", force: :cascade do |t|
     t.string "description"
-    t.integer "type"
+    t.integer "immersion_type"
     t.datetime "start_time"
     t.datetime "stop_time"
     t.integer "duration"
@@ -87,10 +87,10 @@ ActiveRecord::Schema.define(version: 2021_07_28_162041) do
   create_table "language_projects", force: :cascade do |t|
     t.string "name"
     t.boolean "active"
-    t.bigint "user_id_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_language_projects_on_user_id_id"
+    t.index ["user_id"], name: "index_language_projects_on_user_id"
   end
 
   create_table "reading_subentries", force: :cascade do |t|
