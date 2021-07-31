@@ -7,6 +7,7 @@ class ImmersionSubentriesController < ApplicationController
 
   def create
     @immersion_subentry = ImmersionSubentry.new(immersion_subentry_params)
+    @immersion_subentry.entry_date = Entry.find(immersion_subentry_params[:entry_id]).entry_date
     if @immersion_subentry.save
       flash[:success] = "Immersion data added!"
       render action: "index"

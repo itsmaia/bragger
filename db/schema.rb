@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_28_162041) do
+ActiveRecord::Schema.define(version: 2021_07_30_182802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_07_28_162041) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "entry_id"
+    t.datetime "entry_date"
     t.index ["entry_id"], name: "index_anki_subentries_on_entry_id"
   end
 
@@ -81,6 +82,7 @@ ActiveRecord::Schema.define(version: 2021_07_28_162041) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "entry_id"
+    t.datetime "entry_date"
     t.index ["entry_id"], name: "index_immersion_subentries_on_entry_id"
   end
 
@@ -101,6 +103,7 @@ ActiveRecord::Schema.define(version: 2021_07_28_162041) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "entry_id"
+    t.datetime "entry_date"
     t.index ["entry_id"], name: "index_reading_subentries_on_entry_id"
   end
 

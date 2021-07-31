@@ -1,0 +1,14 @@
+.activities-overview
+  %ol.activities
+    - @language_project.activity_distribution_percentages.each do |activity_distribution|
+      %li
+        .category
+          %span.color{:style => "background-color:#{activity_distribution[:color]};"}
+          %span.activity= activity_distribution[:type]
+        .spent
+          .spent-info
+            %span.hours{:style => "color: #{activity_distribution[:color]};"}
+              = chronify_output(activity_distribution[:total_hours])
+            %span.percent
+              = activity_distribution[:percentage]
+              \%

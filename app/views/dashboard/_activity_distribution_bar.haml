@@ -1,57 +1,5 @@
-.activities-overview
-  %ol.activities
-    %li
-      .category
-        %span.color{:style => "background-color:#ce93d8;"}
-        %span.activity= "Active Immersion"
-      .spent
-        .spent-info
-          %span.hours{:style => "color: #ce93d8"}
-            = "290h"
-          %span.percent
-            = 25
-            \%
-
-
-    %li
-      .category
-        %span.color{:style => "background-color:#f48fb1;"}
-        %span.activity= "Passive Immersion"
-      .spent
-        .spent-info
-          %span.hours{:style => "color: #f48fb1"}
-            = "250h"
-          %span.percent
-            = 15
-            \%
-    %li
-      .category
-        %span.color{:style => "background-color:#9fa8da;"}
-        %span.activity= "Reading"
-      .spent
-        .spent-info
-          %span.hours{:style => "color: #9fa8da"}
-            = "310h"
-          %span.percent
-            = 30
-            \%
-    %li
-      .category
-        %span.color{:style => "background-color:#ff8a65;"}
-        %span.activity= "Anki"
-      .spent
-        .spent-info
-          %span.hours{:style => "color: #ff8a65"}
-            = "310h"
-          %span.percent
-            = 30
-            \%
-
-    
 %br/
 .bar
   .graph
-    %span.activity-color{:itemprop => "keywords", :style => "width:#{25}%; background-color:#ce93d8;"}
-    %span.activity-color{:itemprop => "keywords", :style => "width:#{15}%; background-color:#f48fb1;"}
-    %span.activity-color{:itemprop => "keywords", :style => "width:#{30}%; background-color:#9fa8da;"}
-    %span.activity-color{:itemprop => "keywords", :style => "width:#{30}%; background-color:#ff8a65;"}
+    - @language_project.activity_distribution_percentages.each do |activity_distribution|
+      %span.activity-color{:itemprop => "keywords", :style => "width:#{activity_distribution[:percentage]}%; background-color:#{activity_distribution[:color]};"}

@@ -37,3 +37,8 @@ body {
 .user-view {
   border-bottom: 1px solid rgba(0,0,0,0.14);
 }
+
+.card .card-metric {
+  cursor: pointer;
+  padding: 24px;
+}

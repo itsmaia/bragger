@@ -7,6 +7,7 @@ class AnkiSubentriesController < ApplicationController
 
   def create
     @anki_subentry = AnkiSubentry.new(anki_subentry_params)
+    @anki_subentry.entry_date = Entry.find(anki_subentry_params[:entry_id]).entry_date
     if @anki_subentry.save
       flash[:success] = "Anki data added!"
       render :index

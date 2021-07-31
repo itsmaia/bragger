@@ -7,6 +7,7 @@ class ReadingSubentriesController < ApplicationController
 
   def create
     @reading_subentry = ReadingSubentry.new(reading_subentry_params)
+    @reading_subentry.entry_date = Entry.find(reading_subentry_params[:entry_id]).entry_date
     if @reading_subentry.save
       flash[:success] = "Reading data added!"
       render :index
