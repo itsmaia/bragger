@@ -59,6 +59,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "bullet", group: "development"
   gem "spring"
+  gem 'seed_dump'
 end
 
 group :test do
