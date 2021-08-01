@@ -3,27 +3,27 @@
     .card
       .card-stacked
         .card-metric
-          content
+          Active Immersion
       .card-chart 
-        = area_chart([[1,22], [2,23], [3,40], [5,80], [7,100]], height: "120px", points: false)
+        = area_chart(current_user.immersion_subentries.active.group_by_day(:entry_date).sum(:duration), height: "120px", points: false, colors: ["#9fa8da"])
   .col.s3
     .card
       .card-stacked
         .card-metric
-          content
+          Passive Immersion
       .card-chart 
-        = area_chart([[1,22], [2,23], [3,40], [5,80], [7,100]], height: "120px", points: false)
+        = area_chart(current_user.immersion_subentries.passive.group_by_day(:entry_date).sum(:duration), height: "120px", points: false, colors: ["#ff8a65"])
   .col.s3
     .card
       .card-stacked
         .card-metric
-          content
+          Anki
       .card-chart 
-        = area_chart([[1,22], [2,23], [3,40], [5,80], [7,100]], height: "120px", points: false)
+        = area_chart(current_user.anki_subentries.group_by_day(:entry_date).sum(:duration), height: "120px", points: false, colors: ["#e6ee9c"])
   .col.s3
     .card
       .card-stacked
         .card-metric
-          content
+          Reading
       .card-chart 
-        = area_chart([[1,22], [2,23], [3,40], [5,80], [7,100]], height: "120px", points: false)
+        = area_chart(current_user.reading_subentries.group_by_day(:entry_date).sum(:duration), height: "120px", points: false, colors: ["#f48fb1"])
