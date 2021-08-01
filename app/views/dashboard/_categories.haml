@@ -1,6 +1,6 @@
 .activities-overview
   %ol.activities
-    - @language_project.activity_distribution_percentages.each do |activity_distribution|
+    - activity_distribution_data(@language_project).each do |activity_distribution|
       %li
         .category
           %span.color{:style => "background-color:#{activity_distribution[:color]};"}

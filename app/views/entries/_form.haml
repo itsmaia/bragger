@@ -11,6 +11,6 @@
       .col.s2
         = f.input :commentary
       .col.s2
-        = f.input :language_project_id, collection: current_user.language_projects
+        = f.input :language_project_id, collection: current_user.language_projects, default: current_user.language_projects.first
   
     = f.button :submit

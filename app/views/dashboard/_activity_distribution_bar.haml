@@ -1,5 +1,5 @@
 %br/
 .bar
   .graph
-    - @language_project.activity_distribution_percentages.each do |activity_distribution|
+    - activity_distribution_data(@language_project).each do |activity_distribution|
       %span.activity-color{:itemprop => "keywords", :style => "width:#{activity_distribution[:percentage]}%; background-color:#{activity_distribution[:color]};"}

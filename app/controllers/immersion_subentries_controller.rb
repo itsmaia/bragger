@@ -23,7 +23,7 @@ class ImmersionSubentriesController < ApplicationController
   end
 
   def index
-    @immersion_subentries = ImmersionSubentry.all # Needs to be updated
+    @immersion_subentries = current_user.immersion_subentries.includes(:entry)
   end
 
   def edit

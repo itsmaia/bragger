@@ -23,7 +23,7 @@ class ReadingSubentriesController < ApplicationController
   end
 
   def index
-    @reading_subentries = ReadingSubentry.all # Needs to be updated
+    @reading_subentries = current_user.reading_subentries.includes(:entry)
   end
 
   def edit

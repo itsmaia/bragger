@@ -21,7 +21,7 @@ class EntriesController < ApplicationController
   end
 
   def index
-    @entries = Entry.all
+    @entries = current_user.entries.includes(:language_project)
   end
 
   def edit

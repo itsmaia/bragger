@@ -23,7 +23,7 @@ class AnkiSubentriesController < ApplicationController
   end
 
   def index
-    @anki_subentries = AnkiSubentry.all # Needs to be updated
+    @anki_subentries = current_user.anki_subentries.includes(:entry)
   end
 
   def edit
