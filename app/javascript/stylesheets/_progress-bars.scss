@@ -1,0 +1,83 @@
+.activity-color {
+  height: auto;
+  line-height: 8px;
+  vertical-align: top;
+  display: inline-block;
+  height: 8px;
+  background: #ccc;
+  text-indent: -9999px;
+  white-space: nowrap;
+}
+
+.color {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.activity {
+  color: #333333;
+}
+
+.bar {
+  position: relative;
+  width: 100%;
+  display:block;
+}
+
+.activities-overview {
+  clear: both;
+
+  .activities {
+    display: flex;
+    margin-bottom: 5px;
+    text-align: center;
+    justify-content: space-between;
+
+    li {
+      display: inline-block;
+      padding-right: 5px;
+    }
+  }
+}
+.graph {
+  display: block;
+  width: 100%;
+  height: auto;
+  line-height: 12px;
+  white-space: nowrap;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow: hidden;
+}
+
+.activities-overview {
+  .spent {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 10px auto 0;
+    font-size: 1em;
+    font-weight: 100;
+    color: #999;
+    text-align: center;
+
+    .spent-info {
+      position: relative;
+      top: 24px;
+
+      .hours {
+        display: block;
+        font-size: 2em;
+        color: #333 !important;
+        letter-spacing: -2px;
+      }
+      .percent {
+        display: block;
+        margin-top: 2px;
+        color: #999;
+      }
+    }
+  }
+}
