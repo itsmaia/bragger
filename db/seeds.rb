@@ -1,6 +1,3 @@
-User.create!([
-  {email: "gu.mmeneses@gmail.com", encrypted_password: "$2a$12$ltU0cdxw/ZUzpkwMhoImc.X.nmU17QJeLAjTkNEvqU4d.Gokej.SC", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil}
-])
 ImmersionSubentry.create!([
   {description: "", immersion_type: "active", start_time: nil, stop_time: nil, duration: 5400, entry_id: 2, entry_date: "2021-07-03 00:00:00"},
   {description: "", immersion_type: "passive", start_time: nil, stop_time: nil, duration: 1200, entry_id: 2, entry_date: "2021-07-03 00:00:00"},
