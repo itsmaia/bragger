@@ -1,0 +1,24 @@
+- if Rails.env.development?
+  .container.homepage-container
+    %p.flow-text
+      Thanks for your interest in Lingotail! The software is yet to be available to everyone, at its current state its at best a rough sketch. If you'd like to use it anyway, the repository is open and you can download it and try for yourself!
+    %p.flow-text
+      If you want to keep posted, visit the support us page for development updates (it's all free)
+- else
+  %h2 Log in
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email"
+    .field
+      = f.label :password
+      %br/
+      = f.password_field :password, autocomplete: "current-password"
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        = f.label :remember_me
+    .actions
+      = f.submit "Log in"
+  = render "devise/shared/links"

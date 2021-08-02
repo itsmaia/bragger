@@ -16,7 +16,9 @@
       %nav.white.z-depth-0
         .nav-wrapper
           %ul#nav-mobile.right.hide-on-med-and-down
-            %a.waves-effect.waves-light.btn-small.pink.lighten-3 Support us
+            = link_to support_us_path do
+              .waves-effect.waves-light.btn-small.pink.lighten-3
+                Support us
           %ul#nav-mobile.right.hide-on-med-and-down
             - if user_signed_in?
               = link_to users_sign_out_path, method: :delete do

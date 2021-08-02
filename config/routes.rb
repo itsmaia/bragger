@@ -6,13 +6,18 @@ Rails.application.routes.draw do
     resources :immersion_subentries
     resources :reading_subentries
   end
-  devise_for :users
-  devise_scope :user do
-    get "/users/sign_out" => "devise/sessions#destroy"
-    resources :users, only: %i[show edit update]
-  end
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :support_us, only: :index
+
+  if Rails.env.production?
+    devise_for :users, controllers: { registrations: "registrations" }
+  else
+    devise_for :users
+    devise_scope :user do
+      get "/users/sign_out" => "devise/sessions#destroy"
+      resources :users, only: %i[show edit update]
+    end
+  end
 
   root to: "homepage#index"
 end
